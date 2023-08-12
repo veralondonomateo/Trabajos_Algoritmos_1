@@ -58,15 +58,16 @@ def eleccion():
     lista_ = lista.lower()
     return lista_
 eleccion_v1 = eleccion()
-eleccion_v2 = set(eleccion_v1)
+eleccion_v2 = list(eleccion_v1)
 print(eleccion_v2)
 
 print('*'*10)
 print('Bienvenidos al ahorcado de mateo')
 print('*'*10)
 letras = []
-letras_ = set(letras)
-repetidas = []
+erroneas = []
+
+
 tablero = ["_"] * len(eleccion_v1)
 
 
@@ -75,18 +76,23 @@ tablero = ["_"] * len(eleccion_v1)
 while True:
     print(eleccion_v1)
     eleccion_persona = input('Elige una letra => ')
-    print(letras)
     
-    if letras_ :
+    
+
+    if eleccion_persona in eleccion_v1:
+        letras.append(1)
+    
+    if eleccion_persona not in eleccion_v1:
+        erroneas.append(eleccion_persona)
+        print('Te equivocaste, intenta de nuevo ')
+    for i in erroneas:
+        print('Letras erroneas')
+        print(i)
+    if len(letras) == len(eleccion_v2):
         print('Ganaste')
         break
-    elif eleccion_persona in eleccion_v1:
-        letras.append(eleccion_persona)
-    elif eleccion_persona not in eleccion_v1:
-        print('Letra erronea')
 
     
-
 
 
 
