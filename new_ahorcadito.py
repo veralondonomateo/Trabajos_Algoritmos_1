@@ -1,54 +1,55 @@
-import random
-esquema = ['''
+
+'''import random
+esquema = [
       +---+
       |   |
           |
           |
           |
           |
-    =========''', '''
-      +---+
-      |   |
-      O   |
-          |
-          |
-          |
-    =========''', '''
+    =========,
       +---+
       |   |
       O   |
+          |
+          |
+          |
+    =========,
+      +---+
+      |   |
+      O   |
       |   |
           |
           |
-    =========''', '''
+    ========, 
       +---+
       |   |
       O   |
      /|   |
           |
           |
-    =========''', '''
+    =========, 
       +---+
       |   |
       O   |
      /|\  |
           |
           |
-    =========''', '''
+    =========, 
       +---+
       |   |
       O   |
      /|\  |
      /    |
           |
-    =========''', '''
+    =========, 
       +---+
       |   |
       O   |
      /|\  |
      / \  |
           |
-    =========''']
+    =========]
 
 lista_palabras = ['colombia','venezuela','brazil','ecuador','peru',"estados unidos", "canadá", "méxico", "argentina", "españa", "francia", "alemania", "China", "Japón", "India", "Australia", "Rusia", "Italia", "Reino Unido", "Sudáfrica", "Egipto", "Nigeria", "Kenia", "Corea del Sur"]
 
@@ -90,14 +91,43 @@ while True:
         print(i)
     if len(letras) == len(eleccion_v2):
         print('Ganaste')
+        break'''
+import time 
+import random  
+print('*'*10)
+print('Bienvenido al ahorcadito')
+print('*'*10)
+name = input('¿Cúal es tu nombre? ')
+time.sleep(1.5)
+print(f'Hola {name} comencemos a jugar')
+lista = ('colombia','venezuela','brazil','ecuador','peru',"estados unidos", "canadá", "méxico", "argentina", "españa", "francia", "alemania", "China", "Japón", "India", "Australia", "Rusia", "Italia", "Reino Unido", "Sudáfrica", "Egipto", "Nigeria", "Kenia", "Corea del Sur")
+palabra = random.choice(lista)
+tupalabra = ''
+vidas = 5
+while vidas > 0:
+    fallas = 0
+    for letra in palabra:       
+        if letra in tupalabra:
+            print(letra, end='')
+        else:
+            print('_',end='')
+            fallas += 1
+    if fallas == 0:
+        print('\nGANASTE')
         break
+    tuletra = input('\n Elige una letra => ')
+    tupalabra += tuletra
 
+    if tuletra not in palabra:
+        print('LETRA INCORRECTA')
+        vidas -= 1
+        print(f'Te quedan {vidas} vidas')
+
+if vidas == 0:
+    print('Perdiste, Lo sentimos')
     
 
 
-
-
-#Ponemos este código para que solo se ejecute cuando llamamos al archivo
 
     
 
